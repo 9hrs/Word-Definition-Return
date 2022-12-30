@@ -1,0 +1,14 @@
+import requests
+import json
+
+### type any vocabulary word you like
+### it will return definition ,pronunciation and more!
+
+word = input("type in a word")
+
+resp = requests.get(f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}")
+
+if resp.status_code == 200:
+  print(json.dumps(resp.json(), indent=2, sort_keys=False))
+else:
+  print("error")
